@@ -101,7 +101,7 @@ class APICall(object):
         """
         Generate the function URL.
         """
-        if type(self._parent) is APIInterface:
+        if isistance(self._parent, APIInterface):
             return self._parent._query_template + self._api_id + '/'
         else:
             return str(self._parent) + self._api_id + '/'
@@ -165,7 +165,7 @@ class APICall(object):
             if apicall_child._api_id in self.__dict__ \
                and apicall_child is not self.__dict__[apicall_child._api_id]:
                 raise KeyError("This API ID is already taken by another API function!")
-        if type(self._parent) is not APIInterface:
+        if not isinstance(self._parent, APIInterface):
             self._parent._register(self)
         else:
             self._is_registered = True

@@ -167,6 +167,10 @@ class SteamUser(SteamObject):
                 game_obj.playtime_2weeks = game.playtime_2weeks
             if 'playtime_forever' in game:
                 game_obj.playtime_forever = game.playtime_forever
+            if 'img_logo_url' in game:
+                game_obj.img_logo_url = game.img_logo_url
+            if 'img_icon_url' in game:
+                game_obj.img_icon_url = game.img_icon_url
             games_list += [game_obj]
         return games_list
 
@@ -237,7 +241,7 @@ class SteamUser(SteamObject):
             owner = APIConnection().call("IPlayerService", "IsPlayingSharedGame", "v0001",
                                          steamid=self._id,
                                          appid_playing=game.appid)
-            if owner.lender_steamid is not 0:
+            if owner.lender_steamid != 0:
                 game._owner = owner.lender_steamid
             return game
         else:
@@ -476,3 +480,9 @@ class SteamUser(SteamObject):
         :rtype: str
         """
         return self._bans.EconomyBan
+    @cached_property(ttl=INFINITE)
+    def is_game_banned(self):
+        """
+        :rtype: bool
+        """
+        return self._bans.NumberOfGameBans != 0
