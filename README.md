@@ -1,4 +1,4 @@
-SteamAPI [![Build Status](https://travis-ci.org/smiley/steamapi.svg?branch=master)](https://travis-ci.org/smiley/steamapi)
+SteamAPI [![Build Status](https://travis-ci.com/LevBernstein/steamapi.svg?branch=master)](https://travis-ci.com/github/LevBernstein/steamapi)
 ========
 An object-oriented Python 2.7+ library for accessing the Steam Web API. Forked from fizzy123, who themselves forked it from smiley.
 
@@ -11,7 +11,7 @@ It's super-easy to use, straightforward and designed for continuous use. Finally
 With some abstraction, Pythonic classes and ~~magic~~ tricks. Essentially, I use [*requests*](//github.com/kennethreitz/requests) for the actual communication, a few converter classes for parsing the output and making it a proper object, and some well-timed caching to make sure lazy-initialization doesn't get you down.
 
 ## How do I use this?
-Clone the repository & run `python setup.py develop`. (Or [download](/smiley/steamapi/archive/master.zip) it & run `python setup.py install`, which copies the code to your local Python packages folder)
+Clone the repository & run `python setup.py develop`, or download it & run `python setup.py install`, which copies the code to your local Python packages folder.
 
 Then, you can use it like this:
 ```python
@@ -103,6 +103,4 @@ No, and it's also not endorsed in any way by Valve Corporation. _(obligatory leg
 No, but feel free to experiment with it. It's roughly stable right now, with many of the quirks fixed and most classes having a steady API. Small refactorings are rare, and I do plan to overhaul the object system to allow async/batching behaviour, but that's still a way off.
 
 ### Is this still actively-developed? The last commit is quite a while ago!
-Yes, but less than before. This is a side-project, and sadly work has become hectic enough that I have less time and energy to work on this & other side-projects.
-
-That doesn't mean I'm not working on it at all, but it does mean development's gotten slower.
+Yes, but not by me. I forked this from its authors just so I could work on a side project of mine. I'd suggest returning to smiley's original repo for a version with more active development.
